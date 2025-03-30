@@ -15,6 +15,18 @@ function fetchProductsThen() {
         });
     })
     .catch(error => {
-        console.error('Fetch failed: ', error); // Outputs error message is console
+        console.error('Fetch failed: ', error); // Outputs error message in console
     });
-}; // Function to fetch product information from API
+}; // Function that fetches and console logs product information from API
+
+// Task 3: Fetch Products with async/await
+async function fetchProductsAsync() {
+    try {
+        const response = await fetch(BASE_URL); // Fetches product data from API using await
+        const products = await response.json(); // Converts API data into product infromation 
+        displayProducts(products); // Calls helper function to render products on page
+    }
+    catch(error) {
+        handleError(error); // If error occurs -> catches and passes it to handleError
+    };
+}; // Function that fetches and displays product information
