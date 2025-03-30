@@ -29,7 +29,7 @@ async function fetchProductsAsync() {
     catch(error) {
         handleError(error); // If error occurs -> catches and passes it to handleError
     };
-}; // Function that fetches and displays product information
+}; // Function that fetches and displays product information using async
 
 // Task 4: Display the Products
 function displayProducts(products) {
@@ -60,3 +60,6 @@ function handleError(error) {
     console.error(`An error occured: ${error}`); // Console logs error occurences
 }; // Function to handle errors
 
+// Task 6: Call Your Fetch Functions
+fetchProductsThen(); // Calls fetch products then function
+fetchProductsAsync(); // Calls fetch products async function
