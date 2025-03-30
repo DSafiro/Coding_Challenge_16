@@ -54,3 +54,9 @@ function displayProducts(products) {
         productContainer.appendChild(productDiv); // Appends product div to product container
     });
 }; // Function to display products on page
+
+// Task 5: Reusable Error Handler
+function handleError(error) {
+    console.error(`An error occured: ${error}`); // Console logs error occurences
+}; // Function to handle errors
+
