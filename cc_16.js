@@ -24,9 +24,33 @@ async function fetchProductsAsync() {
     try {
         const response = await fetch(BASE_URL); // Fetches product data from API using await
         const products = await response.json(); // Converts API data into product infromation 
-        displayProducts(products); // Calls helper function to render products on page
+        displayProducts(products); // Calls display products function to render products on page
     }
     catch(error) {
         handleError(error); // If error occurs -> catches and passes it to handleError
     };
 }; // Function that fetches and displays product information
+
+// Task 4: Display the Products
+function displayProducts(products) {
+    const productContainer = document.getElementById("product-container"); // Grabs product container using getElementById
+
+    products.slice(0,5).forEach(product => { // Loops through first five products
+        const productDiv = document.createElement("div"); // Creates div class for product
+
+        const productName = document.createElement("h3"); // Creates header for product name
+        productName.textContent = product.fields.name; // Adds product name
+
+        const productPrice = document.createElement("p"); // Creates paragraph for product price
+        productPrice.textContent = `$${product.fields.price}`; // Adds product price
+
+        const productImage = document.createElement("img"); // Creates image for product image
+        productImage.src = product.fields.image[0].thumbnails.small.url; // Adds product image
+
+        productDiv.appendChild(productName); // Appends product name
+        productDiv.appendChild(productPrice); // Appends product price
+        productDiv.appendChild(productImage); // Appends product image
+
+        productContainer.appendChild(productDiv); // Appends product div to product container
+    });
+}; // Function to display products on page
