@@ -34,9 +34,11 @@ async function fetchProductsAsync() {
 // Task 4: Display the Products
 function displayProducts(products) {
     const productContainer = document.getElementById("product-container"); // Grabs product container using getElementById
+    productContainer.setAttribute("id", "productContainer")
 
     products.slice(0,5).forEach(product => { // Loops through first five products
         const productDiv = document.createElement("div"); // Creates div class for product
+        productDiv.setAttribute("class", "product-card")
 
         const productName = document.createElement("h3"); // Creates header for product name
         productName.textContent = product.fields.name; // Adds product name
